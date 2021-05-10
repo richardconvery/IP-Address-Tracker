@@ -3,7 +3,6 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Rubik', sans-serif;
-    background-color: beige;
 }
 h1 {
     color: white;
@@ -50,6 +49,7 @@ header {
     border-bottom-left-radius: 15px;
     border: none;
     padding-left: 20px;
+    font-size: 18px;
     }
 ::placeholder {
     color: grey;
@@ -63,6 +63,7 @@ button {
     color: white;
     height: 60px;
     width: 60px;
+    cursor: pointer;
     }
 /* #endregion */
 /* #region Information*/
@@ -99,7 +100,14 @@ button {
     }
 /* #endregion */
 /* #region Map*/
-#mapid { height: 180px; }
+#mapid { 
+    height: 600px;
+    top: -71px;
+    z-index: -1;
+}
+.leaflet-container {
+    overflow: hidden;
+    }
 /* #endregion */
 
 

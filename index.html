@@ -64,20 +64,23 @@
   
 </div>
 <!-- map -->
-<div id="mapid"></div>
+  <div id="mapid"></div>
 <script>
   // Create map
-  const mymap = L.map('mapid').setView([51.505, -0.09], 13);
-  const attribution = 
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-  // Select tiles to render on the map and add to the map
-  const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  const tiles = L.tileLayer(tileUrl,{ attribution });
-  tiles.addTo(mymap);
-  // Create icon to add to map
-  const myIcon = L.icon({
+  const mymap = L.map('mapid').setView([40.6782, -73.9442], 13);
+  // Add tiles from Mapbox
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoicmljaGFyZGNvbnZlcnkiLCJhIjoiY2tvajQxdXZiMDhhczJ2bndrbmI0bXYxdyJ9.QMADUp16A64accYOaviVGw'
+}).addTo(mymap);
+// Create marker and add to map
+const myIcon = L.icon({
     iconUrl: 'resources/images/icon-location.svg',
-    iconSize: [45, 45],
+    iconSize: [35, 45],
     iconAnchor: [45, 45],
     popupAnchor: [-3, -76],
     // shadowUrl: 'my-icon-shadow.png',
@@ -85,18 +88,12 @@
     shadowAnchor: [22, 94]
 });
   // Add marker to map
-  L.marker([51.505, -0.09],{icon: myIcon}).addTo(mymap);
+  L.marker([40.6782, -73.9442],{icon: myIcon}).addTo(mymap);
+  // Create Zoom controls
+  L.control.zoom(
+    // dragging: true
+  );
 </script>
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Richard Convery</a>.

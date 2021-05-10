@@ -4,18 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | IP Address Tracker</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/images/favicon-32x32.png">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"> 
+  <!-- Link for map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  <title>IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+<!-- hero -->
+<img id="hero" src="resources/images/pattern-bg.png" alt="hero">
+<!-- heading -->
+<header>
+  <h1>IP Address Tracker</h1>
+</header>
+<!-- input -->
+<div class="input-banner">
+  <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
+  <button><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
+</div>
+<!-- information -->
+<div class="information-banner">
+  <div class="information-box">
+    <div class="ip-address box">
+      <div class="ip-title">
+        <h2>IP Address</h2>
+        <p class="ip result">192.212.174.101</p>
+      </div>
+    </div>
 
+    <div class="location box">
+      <div class="location-title">
+        <h2>Location</h2>
+        <p class="location result">Brooklyn, NY 10001</p>
+      </div>
+    </div>
+
+    <div class="timezone box">
+      <div class="timezone-title">
+        <h2>Timezone</h2>
+        <p class="timezone result">UTC -05:00</p>
+      </div>
+    </div>
+
+    <div class="isp box">
+      <div class="isp-title">
+        <h2>ISP</h2>
+        <p class="isp result">SpaceX Starlink</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!-- map -->
+<div id="mapid"></div>
+<script>
+  // Create map
+  const mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  const attribution = 
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  // Select tiles to render on the map and add to the map
+  const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const tiles = L.tileLayer(tileUrl,{ attribution });
+  tiles.addTo(mymap);
+  // Create icon to add to map
+  const myIcon = L.icon({
+    iconUrl: 'resources/images/icon-location.svg',
+    iconSize: [45, 45],
+    iconAnchor: [45, 45],
+    popupAnchor: [-3, -76],
+    // shadowUrl: 'my-icon-shadow.png',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
+  // Add marker to map
+  L.marker([51.505, -0.09],{icon: myIcon}).addTo(mymap);
+</script>
   IP Address Tracker
 
   Search for any IP address or domain
@@ -28,7 +99,7 @@
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Richard Convery</a>.
   </div>
 </body>
 </html>

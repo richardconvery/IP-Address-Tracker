@@ -1,0 +1,117 @@
+/* #region Global styles*/
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: beige;
+}
+h1 {
+    color: white;
+    font-weight: inherit;
+}
+h2 {
+    color: hsl(0, 0%, 59%);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  p {
+    font-size: 24px;
+    font-weight: 500;
+    color: hsl(0, 0%, 17%);
+    }
+/* #endregion */
+/* #region Hero*/
+#hero {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 100%;
+}
+/* #endregion */
+/* #region Heading*/
+header {
+    text-align: center;
+    padding-top: 30px;
+}
+/* #endregion */
+/* #region Input*/
+.input-banner {
+    justify-content: center;
+    display: flex;
+    }
+#search {
+    height: 60px;
+    width: 480px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: none;
+    padding-left: 20px;
+    }
+::placeholder {
+    color: grey;
+    font-size: 18px;
+    }
+button {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    background: black;
+    color: white;
+    height: 60px;
+    width: 60px;
+    }
+/* #endregion */
+/* #region Information*/
+.information-banner {
+    align-content: center;
+    display: flex;
+    width: 100%;
+    padding-top: 50px;
+    }
+.information-box {
+    background: white;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 150px;
+    border-radius: 15px;
+    border: none;
+    }
+.box {
+    padding-left: 30px;
+    border-right: lightgray 1px solid;
+    padding-right: 15px;
+    margin-top: 25px;
+    height: 90px;
+    margin-bottom: 25px;
+    }
+.isp.box {
+    border: none;
+    }
+.result {
+    margin-top: 0;
+    }
+/* #endregion */
+/* #region Map*/
+#mapid { height: 180px; }
+/* #endregion */
+
+
+  
+
+
+
+/* #region Attriubution*/
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+.attribution a {
+    color: hsl(228, 45%, 44%); 
+}
+/* #endregion */

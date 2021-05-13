@@ -48,6 +48,8 @@ header {
     width: 480px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     border: none;
     padding-left: 20px;
     font-size: 18px;
@@ -126,5 +128,30 @@ button {
 }
 .attribution a {
     color: hsl(228, 45%, 44%); 
+}
+/* #endregion */
+/* #region Mobile*/
+@media (max-width: 425px) {
+    #search {
+        width: 70%;
+    }
+    .information-box {
+        width: 84%;
+        grid-template-columns: 1fr;
+        height: max-content;
+        }
+    .box {
+        border-right: none;
+        margin-top: 5px;
+        height: 40px;
+        text-align: center;
+        padding-bottom: 5px;
+        }
+    .leaflet-container {
+        top: -221px;
+        }
+    .information-banner {
+        padding-top: 30px;
+        }
 }
 /* #endregion */

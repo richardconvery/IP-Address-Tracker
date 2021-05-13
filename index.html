@@ -64,7 +64,9 @@
   
 </div>
 <!-- map -->
-  <div id="mapid"></div>
+  <div class="leaflet-container">
+    <div id="mapid"></div>
+  </div>
 <script>
   // Create map
   const mymap = L.map('mapid').setView([40.6782, -73.9442], 13);
@@ -93,9 +95,9 @@ const myIcon = L.icon({
     // dragging: true
   );
 </script>
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Richard Convery</a>.
-  </div>
+  </div> -->
 </body>
 </html>

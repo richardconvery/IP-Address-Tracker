@@ -18,7 +18,7 @@
   <title>IP Address Tracker</title>
 
 </head>
-<body>
+<body onload="myFunction()">
 <!-- hero -->
 <img id="hero" src="resources/images/pattern-bg.png" alt="hero">
 <!-- heading -->
@@ -36,28 +36,29 @@
     <div class="ip-address box">
       <div class="ip-title">
         <h2>IP Address</h2>
-        <p class="ip result">192.212.174.101</p>
+        <p id="result1" class="ip result"><span id="IP-Result"></span></p>
+        <div id="lds-ripple"><div></div><div></div></div>
       </div>
     </div>
 
     <div class="location box">
       <div class="location-title">
         <h2>Location</h2>
-        <p class="location result">Brooklyn, NY 10001</p>
+        <p id="result2" class="location result"><span id="Location-Result"></span></p>
       </div>
     </div>
 
     <div class="timezone box">
       <div class="timezone-title">
         <h2>Timezone</h2>
-        <p class="timezone result">UTC -05:00</p>
+        <p id="result3" class="timezone result"><span id="Timezone-Result"></p>
       </div>
     </div>
 
     <div class="isp box">
       <div class="isp-title">
         <h2>ISP</h2>
-        <p class="isp result">SpaceX Starlink</p>
+        <p id="result4" class="isp result"><span id="ISP-Result"></p>
       </div>
     </div>
   </div>
@@ -67,39 +68,22 @@
   <div class="leaflet-container">
     <div id="mapid"></div>
   </div>
-<script>
-  // Create map
-  const mymap = L.map('mapid', {
-    center: [40.6782, -73.9442],
-    zoom: 13,
-    zoomControl: false,
-    dragging: false,
-    attributionControl: false,
-    keyboard: false,
-    scrollWheelZoom: false
-  });
-  // Add tiles from Mapbox
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoicmljaGFyZGNvbnZlcnkiLCJhIjoiY2tvajQxdXZiMDhhczJ2bndrbmI0bXYxdyJ9.QMADUp16A64accYOaviVGw'
-}).addTo(mymap);
-// Create marker and add to map
-const myIcon = L.icon({
-    iconUrl: 'resources/images/icon-location.svg',
-    iconSize: [35, 45],
-    iconAnchor: [45, 45],
-    popupAnchor: [-3, -76],
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94]
-});
-  // Add marker to map
-  L.marker([40.6782, -73.9442],{icon: myIcon}).addTo(mymap);
-  // Prevent zoom
-</script>
+  <script src="resources/js/map.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src='resources/js/ip-tracker.js'></script>
+  <script>
+    var myVar;
+    function showPage() {
+      document.getElementById("result1").style.display = "block";
+      document.getElementById("result2").style.display = "block";
+      document.getElementById("result3").style.display = "block";
+      document.getElementById("result4").style.display = "block";
+      document.getElementById("lds-ripple").style.display = "none";
+    }
+    function myFunction() {
+      myVar = setTimeout(showPage, 2500);
+    }
+  </script>
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Richard Convery</a>.

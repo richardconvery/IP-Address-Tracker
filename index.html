@@ -69,7 +69,15 @@
   </div>
 <script>
   // Create map
-  const mymap = L.map('mapid').setView([40.6782, -73.9442], 13);
+  const mymap = L.map('mapid', {
+    center: [40.6782, -73.9442],
+    zoom: 13,
+    zoomControl: false,
+    dragging: false,
+    attributionControl: false,
+    keyboard: false,
+    scrollWheelZoom: false
+  });
   // Add tiles from Mapbox
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -90,10 +98,7 @@ const myIcon = L.icon({
 });
   // Add marker to map
   L.marker([40.6782, -73.9442],{icon: myIcon}).addTo(mymap);
-  // Create Zoom controls
-  L.control.zoom(
-    // dragging: true
-  );
+  // Prevent zoom
 </script>
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

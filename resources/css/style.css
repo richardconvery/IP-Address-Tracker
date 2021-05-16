@@ -107,11 +107,13 @@ button {
 /* #endregion */
 /* #region Loading spinner*/
 #lds-ripple {
-    display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
-    left: 60px;
+    display: block;
+    margin-left: auto;
+    top: -440px;
+    margin-right: auto;
   }
   #lds-ripple div {
     position: absolute;
@@ -139,6 +141,11 @@ button {
       opacity: 0;
     }
   }
+  .Locating {
+    top: -20px;
+    position: relative;
+    text-align: center;
+    }
   
 /* #endregion */
 /* #region Map*/
@@ -154,9 +161,9 @@ button {
     height: 100%;
     top: 0px;
     z-index: 0;
-    /* position: absolute; */
     bottom: 0;
     width: 100%;
+    background: white;
 }
 /* #endregion */
 /* #region Attriubution*/

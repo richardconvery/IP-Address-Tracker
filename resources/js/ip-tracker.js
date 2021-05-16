@@ -2,20 +2,15 @@
 let ipURL = 'https://geo.ipify.org/api/v1?apiKey=at_nC6QwCvwb9yntzih6S0ePUd2JLmN9';
 console.log("URL retrived");
 $.getJSON(ipURL).then (function(data) {
-    console.log("Getting data ");
-    console.log("Loading IP address: ");
     thisIP = data.ip;
     document.getElementById("IP-Result").innerHTML = thisIP;
-    console.log("Finding location");
     thisCity = data.location.city;
     thisCountry = data.location.country;
     thisLat = data.location.lat;
     thisLng= data.location.lng;
     document.getElementById("Location-Result").innerHTML = thisCity + ', ' + thisCountry;
-    console.log("Finding timezone");
     thisTimezone = data.location.timezone;
     document.getElementById("Timezone-Result").innerHTML = thisTimezone;
-    console.log("Identifying ISP");
     thisISP = data.isp;
     document.getElementById("ISP-Result").innerHTML = thisISP;
     createMap();
@@ -59,7 +54,7 @@ const myIcon = L.icon({
 });
   // Add marker to map
   L.marker([thisLat, thisLng],{icon: myIcon}).addTo(mymap);
-  showPage()
+  showPage();
   }
 
 
@@ -86,22 +81,18 @@ $.getJSON(ipURL, function(data) {
     thisLat = data.location.lat;
     thisLng= data.location.lng;
 });
-    document.getElementById('search').value = '';
+    // Clear input from the box
+    // document.getElementById('search').value = '';
 };
 
 
 
 
 // Show information on load
-
-var myVar;
-    function showPage() {
-      document.getElementById("result1").style.display = "block";
-      document.getElementById("result2").style.display = "block";
-      document.getElementById("result3").style.display = "block";
-      document.getElementById("result4").style.display = "block";
-      document.getElementById("lds-ripple").style.display = "none";
-    }
-    function myFunction() {
-      myVar = setTimeout(showPage, 2500);
-    }
+function showPage() {
+    document.getElementById("result1").style.display = "block";
+    document.getElementById("result2").style.display = "block";
+    document.getElementById("result3").style.display = "block";
+    document.getElementById("result4").style.display = "block";
+    document.getElementById("lds-ripple").style.display = "none";
+}

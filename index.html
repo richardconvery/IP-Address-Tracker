@@ -18,7 +18,7 @@
   <title>IP Address Tracker</title>
 
 </head>
-<body onload="myFunction()">
+<body>
 <!-- hero -->
 <img id="hero" src="resources/images/pattern-bg.png" alt="hero">
 <!-- heading -->
@@ -28,7 +28,7 @@
 <!-- input -->
 <div class="input-banner">
   <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
-  <button><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
+  <button type="button" onclick="getInputValue();"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
 </div>
 <!-- information -->
 <div class="information-banner">
@@ -51,7 +51,7 @@
     <div class="timezone box">
       <div class="timezone-title">
         <h2>Timezone</h2>
-        <p id="result3" class="timezone result"><span id="Timezone-Result"></p>
+        <p id="result3" class="timezone result">UTC <span id="Timezone-Result"></p>
       </div>
     </div>
 
@@ -68,21 +68,10 @@
   <div class="leaflet-container">
     <div id="mapid"></div>
   </div>
-  <script src="resources/js/map.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src='resources/js/ip-tracker.js'></script>
   <script>
-    var myVar;
-    function showPage() {
-      document.getElementById("result1").style.display = "block";
-      document.getElementById("result2").style.display = "block";
-      document.getElementById("result3").style.display = "block";
-      document.getElementById("result4").style.display = "block";
-      document.getElementById("lds-ripple").style.display = "none";
-    }
-    function myFunction() {
-      myVar = setTimeout(showPage, 2500);
-    }
+    
   </script>
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

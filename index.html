@@ -28,7 +28,7 @@
 <!-- input -->
 <div class="input-banner">
   <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
-  <button type="button" onclick="getInputValue();"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
+  <button id="mybutton" type="button" onclick="getInputValue();" value="submit"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
 </div>
 <!-- information -->
 <div class="information-banner">
@@ -68,6 +68,8 @@
     <div id="mapid"></div>
     <div id="lds-ripple"><h2 class="Locating">Locating</h2><div></div><div></div></div>
   </div>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src='resources/js/ip-tracker.js'></script>
   <!-- <div class="attribution">

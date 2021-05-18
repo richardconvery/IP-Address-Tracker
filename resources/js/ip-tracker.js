@@ -1,6 +1,5 @@
 // IP data
 let ipURL = 'https://geo.ipify.org/api/v1?apiKey=at_nC6QwCvwb9yntzih6S0ePUd2JLmN9';
-console.log("URL retrived");
 $.getJSON(ipURL).then (function(data) {
     thisIP = data.ip;
     document.getElementById("IP-Result").innerHTML = thisIP;
@@ -14,7 +13,11 @@ $.getJSON(ipURL).then (function(data) {
     thisISP = data.isp;
     document.getElementById("ISP-Result").innerHTML = thisISP;
     createMap();
+    showPage()
 });
+
+
+
 
 
 
@@ -22,10 +25,8 @@ $.getJSON(ipURL).then (function(data) {
 
 // Map
   // Create map
-  function createMap () {
-  console.log("Creating map");
   const mymap = L.map('mapid', {
-    center: [thisLat, thisLng],
+    center: [40.737, -73.923],
     zoom: 13,
     zoomControl: false,
     dragging: false,
@@ -33,6 +34,21 @@ $.getJSON(ipURL).then (function(data) {
     keyboard: false,
     scrollWheelZoom: false
   });
+//   Create marker
+function createMarker(){
+    const myIcon = L.icon({
+        iconUrl: 'resources/images/icon-location.svg',
+        iconSize: [35, 45],
+        iconAnchor: [45, 45],
+        popupAnchor: [-3, -76],
+        shadowSize: [68, 95],
+        shadowAnchor: [22, 94]
+    });
+    // Add marker to map
+    L.marker([thisLat, thisLng],{icon: myIcon}).addTo(mymap);
+}
+//   Function to show the map with pin
+  function createMap () {
   // Add tiles from Mapbox
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -43,31 +59,43 @@ $.getJSON(ipURL).then (function(data) {
     // Simply create a free account on mapbox.com and there will be an access key there
     accessToken: 'pk.eyJ1IjoicmljaGFyZGNvbnZlcnkiLCJhIjoiY2tvajQxdXZiMDhhczJ2bndrbmI0bXYxdyJ9.QMADUp16A64accYOaviVGw'
 }).addTo(mymap);
-// Create marker and add to map
-const myIcon = L.icon({
-    iconUrl: 'resources/images/icon-location.svg',
-    iconSize: [35, 45],
-    iconAnchor: [45, 45],
-    popupAnchor: [-3, -76],
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94]
-});
-  // Add marker to map
-  L.marker([thisLat, thisLng],{icon: myIcon}).addTo(mymap);
-  showPage();
+    // Create marker and add to map
+    createMarker()
+    // Show the information and set the map view
+    showPage();
+    mymap.setView ([thisLat, thisLng],13);
+
   }
+
+
+
+
 
 
 
 //   Submit button
 function getInputValue(){
     // Selecting the input element and get its value 
-    var inputVal = document.getElementById("search").value;
+    let inputVal = document.getElementById("search").value;
     
-    // Submit the input to ipify to refresh data
+    // Work out if this is an IP address or website
 
-    let ipURL = 'https://geo.ipify.org/api/v1?apiKey=at_nC6QwCvwb9yntzih6S0ePUd2JLmN9&ipAddress=' + inputVal;
-$.getJSON(ipURL, function(data) {
+    // Set regex to check
+    const regex = new RegExp('([0-9][0-9][0-9]|[0-9][0-9]|[0-9])\.([0-9][0-9][0-9]|[0-9][0-9]|[0-9])\.([0-9][0-9][0-9]|[0-9][0-9]|[0-9])\.([0-9][0-9][0-9]|[0-9][0-9]|[0-9])');
+    
+    // Change the URL depending on the regex result
+    let ipURL = "";
+    function setURL () {
+        if (regex.test(inputVal) === true){
+            ipURL = 'https://geo.ipify.org/api/v1?apiKey=at_nC6QwCvwb9yntzih6S0ePUd2JLmN9&ipAddress=' + inputVal;
+        } else {
+            ipURL = 'https://geo.ipify.org/api/v1?apiKey=at_nC6QwCvwb9yntzih6S0ePUd2JLmN9&domain=' + inputVal;
+        }
+    }
+    setURL();
+    // ipURL = 'https://geo.ipify.org/api/v1?apiKey=at_nC6QwCvwb9yntzih6S0ePUd2JLmN9&ipAddress=' + inputVal;
+    // Submit the input to ipify to refresh data
+    $.getJSON(ipURL, function(data) {
     thisIP = data.ip;
     document.getElementById("IP-Result").innerHTML = thisIP;
     thisCity = data.location.city;
@@ -80,10 +108,16 @@ $.getJSON(ipURL, function(data) {
     document.getElementById("ISP-Result").innerHTML = thisISP;
     thisLat = data.location.lat;
     thisLng= data.location.lng;
-});
-    // Clear input from the box
-    // document.getElementById('search').value = '';
+    // Create the new marker and fly there
+    createMarker();
+    mymap.flyTo([thisLat, thisLng], 13);
+    
+}); 
 };
+
+
+
+
 
 
 
@@ -96,3 +130,24 @@ function showPage() {
     document.getElementById("result4").style.display = "block";
     document.getElementById("lds-ripple").style.display = "none";
 }
+
+
+
+
+
+
+
+// Submit when the user presses enter
+// Get the input field
+var input = document.getElementById("search");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13 || event.key === "button") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("mybutton").click();
+  }
+}); 

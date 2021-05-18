@@ -46,6 +46,14 @@ function createMarker(){
     });
     // Add marker to map
     L.marker([thisLat, thisLng],{icon: myIcon}).addTo(mymap);
+    // Add popup to map
+    var popup = L.popup({
+        closeButton: false,
+        className: "h2"
+    })
+    .setLatLng([thisLat, thisLng])
+    .setContent(thisIP)
+    .openOn(mymap)
 }
 //   Function to show the map with pin
   function createMap () {

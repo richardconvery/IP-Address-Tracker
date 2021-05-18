@@ -16,11 +16,18 @@ h2 {
     font-weight: 500;
     letter-spacing: 1px;
   }
-  p {
-    font-size: 24px;
+.leaflet-popup-content {
+    color: hsl(0, 0%, 59%);
+    text-transform: uppercase;
+    font-size: 12px;
     font-weight: 500;
-    color: hsl(0, 0%, 17%);
-    }
+    letter-spacing: 1px;
+}
+p {
+font-size: 24px;
+font-weight: 500;
+color: hsl(0, 0%, 17%);
+}
 /* #endregion */
 /* #region Hero*/
 #hero {
@@ -165,6 +172,13 @@ button {
     width: 100%;
     background: white;
 }
+.leaflet-popup.leaflet-zoom-animated {
+    top: -100px;
+    left: -10px;
+    }
+.leaflet-popup {
+    left: -130px;
+    }
 /* #endregion */
 /* #region Attriubution*/
 .attribution { 
@@ -192,10 +206,13 @@ button {
         padding-bottom: 5px;
         }
     .leaflet-container {
-        top: -221px;
+        top: -211px;
         }
     .information-banner {
         padding-top: 30px;
+        }
+    .isp.box {
+        margin-bottom: 35px;
         }
 }
 /* #endregion */

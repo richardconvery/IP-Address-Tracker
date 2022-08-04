@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-<<<<<<< HEAD
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
     <link rel="icon" type="image/png" sizes="32x32" href="resources/images/favicon-32x32.png">
     <link rel="stylesheet" href="resources/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,77 +13,41 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <title>IP Address Tracker</title>
-    <script>
-        function initFreshChat() {
-            window.fcWidget.init({
-                token: "80212996-69c7-4bb0-af9a-ad3bf555c5c5",
-                host: "https://wchat.eu.freshchat.com"
-            });
-        }
-=======
-  <link rel="icon" type="image/png" sizes="32x32" href="resources/images/favicon-32x32.png">
-  <link rel="stylesheet" href="resources/css/style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"> 
-  <!-- Link for map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""></script>
-  <title>IP Address Tracker</title>
->>>>>>> parent of a3e9516 (Add HubSpot chat bot)
-
-        function initialize(i, t) {
-            var e;
-            i.getElementById(t) ? initFreshChat() :
-                ((e = i.createElement("script")).id = t,
-                    e.async = !0, e.src = "https://wchat.eu.freshchat.com/js/widget.js",
-                    e.onload = initFreshChat, i.head.appendChild(e))
-        }
-
-        function initiateCall() {
-            initialize(document, "freshchat-js-sdk")
-        }
-        window.addEventListener ?
-            window.addEventListener("load", initiateCall, !1) :
-            window.attachEvent("load", initiateCall, !1);
-    </script>
 </head>
+
 <body>
-<!-- hero -->
-<img id="hero" src="resources/images/pattern-bg.png" alt="hero">
-<!-- heading -->
-<header>
-  <h1>IP Address Tracker</h1>
-</header>
-<!-- input -->
-<div class="input-banner">
-  <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
-  <button id="mybutton" type="button" onclick="getInputValue();" value="submit"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
-</div>
-<!-- information -->
-<div class="information-banner">
-  <div class="information-box">
-    <div class="ip-address box">
-      <div class="ip-title">
-        <h2>IP Address</h2>
-        <p id="result1" class="ip result"><span id="IP-Result"></span></p>
-      </div>
+    <!-- hero -->
+    <img id="hero" src="resources/images/pattern-bg.png" alt="hero">
+    <!-- heading -->
+    <header>
+        <h1>IP Address Tracker</h1>
+    </header>
+    <!-- input -->
+    <div class="input-banner">
+        <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
+        <button id="mybutton" type="button" onclick="getInputValue();" value="submit"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
     </div>
+    <!-- information -->
+    <div class="information-banner">
+        <div class="information-box">
+            <div class="ip-address box">
+                <div class="ip-title">
+                    <h2>IP Address</h2>
+                    <p id="result1" class="ip result"><span id="IP-Result"></span></p>
+                </div>
+            </div>
 
-    <div class="location box">
-      <div class="location-title">
-        <h2>Location</h2>
-        <p id="result2" class="location result"><span id="Location-Result"></span></p>
-      </div>
-    </div>
+            <div class="location box">
+                <div class="location-title">
+                    <h2>Location</h2>
+                    <p id="result2" class="location result"><span id="Location-Result"></span></p>
+                </div>
+            </div>
 
-    <div class="timezone box">
-      <div class="timezone-title">
-        <h2>Timezone</h2>
-        <p id="result3" class="timezone result">UTC <span id="Timezone-Result"></p>
+            <div class="timezone box">
+                <div class="timezone-title">
+                    <h2>Timezone</h2>
+                    <p id="result3" class="timezone result">UTC <span id="Timezone-Result"></p>
       </div>
     </div>
 
@@ -109,5 +73,8 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Richard Convery</a>.
   </div> -->
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/21847664.js"></script>
+<!-- End of HubSpot Embed Code -->
 </body>
 </html>

@@ -13,41 +13,56 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <title>IP Address Tracker</title>
-</head>
 
-<body>
-    <!-- hero -->
-    <img id="hero" src="resources/images/pattern-bg.png" alt="hero">
-    <!-- heading -->
-    <header>
-        <h1>IP Address Tracker</h1>
-    </header>
-    <!-- input -->
-    <div class="input-banner">
-        <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
-        <button id="mybutton" type="button" onclick="getInputValue();" value="submit"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
-    </div>
-    <!-- information -->
-    <div class="information-banner">
-        <div class="information-box">
-            <div class="ip-address box">
-                <div class="ip-title">
-                    <h2>IP Address</h2>
-                    <p id="result1" class="ip result"><span id="IP-Result"></span></p>
+    <head>
+        <title>JavaScript Yes/No Confirmation box</title>
+        <script>
+            const confirmAction = () => {
+                const response = confirm("Are you sure you want to do that?");
+
+                if (response) {
+                    alert("Ok was pressed");
+                } else {
+                    alert("Cancel was pressed");
+                }
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <!-- hero -->
+        <img id="hero" src="resources/images/pattern-bg.png" alt="hero">
+        <!-- heading -->
+        <header>
+            <h1>IP Address Tracker</h1>
+        </header>
+        <!-- input -->
+        <div class="input-banner">
+            <input type="search" name="search" id="search" placeholder="Search for any IP address or domain">
+            <button id="mybutton" type="button" onclick="getInputValue();" value="submit"><img id="arrow" src="resources/images/icon-arrow.svg" alt="arrow"></button>
+        </div>
+        <!-- information -->
+        <div class="information-banner">
+            <div class="information-box">
+                <div class="ip-address box">
+                    <div class="ip-title">
+                        <h2>IP Address</h2>
+                        <p id="result1" class="ip result"><span id="IP-Result"></span></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="location box">
-                <div class="location-title">
-                    <h2>Location</h2>
-                    <p id="result2" class="location result"><span id="Location-Result"></span></p>
+                <div class="location box">
+                    <div class="location-title">
+                        <h2>Location</h2>
+                        <p id="result2" class="location result"><span id="Location-Result"></span></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timezone box">
-                <div class="timezone-title">
-                    <h2>Timezone</h2>
-                    <p id="result3" class="timezone result">UTC <span id="Timezone-Result"></p>
+                <div class="timezone box">
+                    <div class="timezone-title">
+                        <h2>Timezone</h2>
+                        <p id="result3" class="timezone result">UTC <span id="Timezone-Result"></p>
       </div>
     </div>
 

@@ -13,22 +13,17 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <title>IP Address Tracker</title>
+    <script>
+        const confirmAction = () => {
+            const response = confirm("Are you sure you want to do that?");
 
-    <head>
-        <title>JavaScript Yes/No Confirmation box</title>
-        <script>
-            const confirmAction = () => {
-                const response = confirm("Are you sure you want to do that?");
-
-                if (response) {
-                    alert("Ok was pressed");
-                } else {
-                    alert("Cancel was pressed");
-                }
+            if (response) {
+                alert("Ok was pressed");
+            } else {
+                alert("Cancel was pressed");
             }
-        </script>
-
-    </head>
+        }
+    </script>
 
     <body>
         <!-- hero -->

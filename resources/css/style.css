@@ -1,21 +1,25 @@
 /* #region Global styles*/
-body{
+
+body {
     padding: 0;
     margin: 0;
     font-family: 'Rubik', sans-serif;
     overflow: hidden;
 }
+
 h1 {
     color: white;
     font-weight: inherit;
 }
+
 h2 {
     color: hsl(0, 0%, 59%);
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
-  }
+}
+
 .leaflet-popup-content {
     color: hsl(0, 0%, 59%);
     text-transform: uppercase;
@@ -23,13 +27,19 @@ h2 {
     font-weight: 500;
     letter-spacing: 1px;
 }
+
 p {
-font-size: 24px;
-font-weight: 500;
-color: hsl(0, 0%, 17%);
+    font-size: 24px;
+    font-weight: 500;
+    color: hsl(0, 0%, 17%);
 }
+
+
 /* #endregion */
+
+
 /* #region Hero*/
+
 #hero {
     position: absolute;
     z-index: -1;
@@ -38,18 +48,29 @@ color: hsl(0, 0%, 17%);
     height: 300px;
     width: 100%;
 }
+
+
 /* #endregion */
+
+
 /* #region Heading*/
+
 header {
     text-align: center;
     padding-top: 30px;
 }
+
+
 /* #endregion */
+
+
 /* #region Input*/
+
 .input-banner {
     justify-content: center;
     display: flex;
-    }
+}
+
 #search {
     height: 60px;
     width: 480px;
@@ -60,11 +81,13 @@ header {
     border: none;
     padding-left: 20px;
     font-size: 18px;
-    }
+}
+
 ::placeholder {
     color: grey;
     font-size: 18px;
-    }
+}
+
 button {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -74,17 +97,23 @@ button {
     height: 60px;
     width: 60px;
     cursor: pointer;
-    }
+}
+
+
 /* #endregion */
+
+
 /* #region Information*/
+
 .information-banner {
     align-content: center;
     display: flex;
     width: 100%;
-    padding-top: 50px;
+    //padding-top: 50px;
     position: relative;
     z-index: 1;
-    }
+}
+
 .information-box {
     background: white;
     width: 1000px;
@@ -95,7 +124,8 @@ button {
     height: 150px;
     border-radius: 15px;
     border: none;
-    }
+}
+
 .box {
     padding-left: 30px;
     border-right: lightgray 1px solid;
@@ -103,16 +133,23 @@ button {
     margin-top: 25px;
     height: 90px;
     margin-bottom: 25px;
-    }
+}
+
 .isp.box {
     border: none;
-    }
+}
+
 .result {
     margin-top: 0;
     display: none;
-    }
+}
+
+
 /* #endregion */
+
+
 /* #region Loading spinner*/
+
 #lds-ripple {
     position: relative;
     width: 80px;
@@ -121,41 +158,49 @@ button {
     margin-left: auto;
     top: -440px;
     margin-right: auto;
-  }
-  #lds-ripple div {
+}
+
+#lds-ripple div {
     position: absolute;
     border: 4px solid rgb(71, 71, 71);
     opacity: 1;
     border-radius: 50%;
     animation: lds-ripple 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-  }
-  #lds-ripple div:nth-child(2) {
+}
+
+#lds-ripple div:nth-child(2) {
     animation-delay: -0.5s;
-  }
-  @keyframes lds-ripple {
+}
+
+@keyframes lds-ripple {
     0% {
-      top: 36px;
-      left: 36px;
-      width: 0;
-      height: 0;
-      opacity: 1;
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
     }
     100% {
-      top: 0px;
-      left: 0px;
-      width: 72px;
-      height: 72px;
-      opacity: 0;
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
     }
-  }
-  .Locating {
+}
+
+.Locating {
     top: -20px;
     position: relative;
     text-align: center;
-    }
-  
+}
+
+
 /* #endregion */
+
+
 /* #region Map*/
+
 .leaflet-container {
     overflow: hidden;
     z-index: 0;
@@ -163,8 +208,9 @@ button {
     top: -71px;
     height: calc(100vh - 300px);
     width: 100vw;
-    }
-#mapid { 
+}
+
+#mapid {
     height: 100%;
     top: 0px;
     z-index: 0;
@@ -172,23 +218,37 @@ button {
     width: 100%;
     background: white;
 }
+
 .leaflet-popup.leaflet-zoom-animated {
     top: -100px;
     left: -10px;
-    }
+}
+
 .leaflet-popup {
     left: -130px;
-    }
+}
+
+
 /* #endregion */
+
+
 /* #region Attriubution*/
-.attribution { 
-    font-size: 11px; text-align: center; 
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
 }
+
 .attribution a {
-    color: hsl(228, 45%, 44%); 
+    color: hsl(228, 45%, 44%);
 }
+
+
 /* #endregion */
+
+
 /* #region Mobile*/
+
 @media (max-width: 425px) {
     #search {
         width: 70%;
@@ -197,22 +257,24 @@ button {
         width: 84%;
         grid-template-columns: 1fr;
         height: max-content;
-        }
+    }
     .box {
         border-right: none;
         margin-top: 5px;
         height: 40px;
         text-align: center;
         padding-bottom: 5px;
-        }
+    }
     .leaflet-container {
         top: -211px;
-        }
+    }
     .information-banner {
         padding-top: 30px;
-        }
+    }
     .isp.box {
         margin-bottom: 35px;
-        }
+    }
 }
+
+
 /* #endregion */

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Ascendr - Sign In</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="/assets/icons/favicon.png">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/assets/vendor/tom-select/dist/css/tom-select.bootstrap5.css">
+
+  <!-- CSS Front Template -->
+
+  <link rel="preload" href="/assets/vendor/css/theme.min.css" data-hs-appearance="default" as="style">
+  <link rel="preload" href="/assets/vendor/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+
+    <!-- JS Global Compulsory  -->
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+     <!-- Sweetalert2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.26/sweetalert2.css" integrity="sha512-aNZkM/JhVXzcEdwmFm6Zg0tPZNZb+e/2xmYduDayY/NJ2JgiC6XcCCk4u941r8/ZsmoIZPgwO8WY7YVwrLihLA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/assets/css/app.css?v=1687709545">
+
+  
+
+  <script>
+    window.hs_config = {
+      "autopath": "@@autopath",
+      "deleteLine": "hs-builder:delete",
+      "deleteLine:build": "hs-builder:build-delete",
+      "deleteLine:dist": "hs-builder:dist-delete",
+      "previewMode": false,
+      "layoutBuilder": {
+        "extend": {
+          "switcherSupport": true
+        },
+        "header": {
+          "layoutMode": "default",
+          "containerMode": "container-fluid"
+        },
+        "sidebarLayout": "default"
+      },
+      "themeAppearance": {
+        "layoutSkin": "default",
+        "sidebarSkin": "default",
+        "styles": {
+          "colors": {
+            "primary": "#377dff",
+            "transparent": "transparent",
+            "white": "#fff",
+            "dark": "132144",
+            "gray": {
+              "100": "#f9fafc",
+              "900": "#1e2022"
+            }
+          },
+          "font": "Inter"
+        }
+      },
+      "languageDirection": {
+        "lang": "en"
+      },
+      "skipFilesFromBundle": {
+        "dist": ["assets/js/hs.theme-appearance.js", "assets/js/hs.theme-appearance-charts.js", "assets/js/demo.js"],
+        "build": ["assets/css/theme.css", "assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js", "assets/js/demo.js", "assets/css/theme-dark.css", "assets/css/docs.css", "assets/vendor/icon-set/style.css", "assets/js/hs.theme-appearance.js", "assets/js/hs.theme-appearance-charts.js", "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js", "assets/js/demo.js"]
+      },
+      "minifyCSSFiles": ["assets/css/theme.css", "assets/css/theme-dark.css"],
+      "copyDependencies": {
+        "dist": {
+          "*assets/js/theme-custom.js": ""
+        },
+        "build": {
+          "*assets/js/theme-custom.js": "",
+          "node_modules/bootstrap-icons/font/*fonts/**": "assets/css"
+        }
+      },
+      "buildFolder": "",
+      "replacePathsToCDN": {},
+      "directoryNames": {
+        "src": "./src",
+        "dist": "./dist",
+        "build": "./build"
+      },
+      "fileNames": {
+        "dist": {
+          "js": "theme.min.js",
+          "css": "theme.min.css"
+        },
+        "build": {
+          "css": "theme.min.css",
+          "js": "theme.min.js",
+          "vendorCSS": "vendor.min.css",
+          "vendorJS": "vendor.min.js"
+        }
+      },
+      "fileTypes": "jpg|png|svg|mp4|webm|ogv|json"
+    }
+    window.hs_config.gulpRGBA = (p1) => {
+      const options = p1.split(',')
+      const hex = options[0].toString()
+      const transparent = options[1].toString()
+
+      var c;
+      if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+        c = hex.substring(1).split('');
+        if (c.length == 3) {
+          c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c = '0x' + c.join('');
+        return 'rgba(' + [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(',') + ',' + transparent + ')';
+      }
+      throw new Error('Bad Hex');
+    }
+    window.hs_config.gulpDarken = (p1) => {
+      const options = p1.split(',')
+
+      let col = options[0].toString()
+      let amt = -parseInt(options[1])
+      var usePound = false
+
+      if (col[0] == "#") {
+        col = col.slice(1)
+        usePound = true
+      }
+      var num = parseInt(col, 16)
+      var r = (num >> 16) + amt
+      if (r > 255) {
+        r = 255
+      } else if (r < 0) {
+        r = 0
+      }
+      var b = ((num >> 8) & 0x00FF) + amt
+      if (b > 255) {
+        b = 255
+      } else if (b < 0) {
+        b = 0
+      }
+      var g = (num & 0x0000FF) + amt
+      if (g > 255) {
+        g = 255
+      } else if (g < 0) {
+        g = 0
+      }
+      return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+    }
+    window.hs_config.gulpLighten = (p1) => {
+      const options = p1.split(',')
+
+      let col = options[0].toString()
+      let amt = parseInt(options[1])
+      var usePound = false
+
+      if (col[0] == "#") {
+        col = col.slice(1)
+        usePound = true
+      }
+      var num = parseInt(col, 16)
+      var r = (num >> 16) + amt
+      if (r > 255) {
+        r = 255
+      } else if (r < 0) {
+        r = 0
+      }
+      var b = ((num >> 8) & 0x00FF) + amt
+      if (b > 255) {
+        b = 255
+      } else if (b < 0) {
+        b = 0
+      }
+      var g = (num & 0x0000FF) + amt
+      if (g > 255) {
+        g = 255
+      } else if (g < 0) {
+        g = 0
+      }
+      return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+    }
+  </script>
+  <!-- show session notifications -->
+  <script>
+    $(document).ready(function(){
+          });
+      </script>
+  <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11073473080"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11073473080');
+</script>
+</head>
+
+<body class="d-flex align-items-center min-h-100" onload="$('#email').focus();">
+
+  <script src="/assets/vendor/js/hs.theme-appearance.js"></script>
+
+  <!-- ========== HEADER ========== -->
+  <header class="position-absolute top-0 start-0 end-0 mt-3 mx-3">
+    <div class="d-flex d-lg-none justify-content-between">
+      <a href="https://app.ascendr.co.uk">
+        <img class="w-100" src="/assets/logos/logo.svg" alt="Ascendr" data-hs-theme-appearance="default" style="min-width: 7rem; max-width: 7rem;">
+        <img class="w-100" src="/assets/logos/logo.svg" alt="Ascendr" data-hs-theme-appearance="dark" style="min-width: 7rem; max-width: 7rem;">
+      </a>
+
+      <!-- Select -->
+      <div class="tom-select-custom tom-select-custom-end zi-2">
+        <select class="js-select form-select form-select-sm form-select-borderless" data-hs-tom-select-options='{
+                  "searchInDropdown": false,
+                  "hideSearch": true,
+                  "dropdownWidth": "12rem",
+                  "placeholder": "Select language"
+                }'>
+          <option label="empty"></option>
+          <option value="GB" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="/assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Image description" width="16"/><span>English (UK)</span></span>'>English (UK)</option>
+          <!-- <option value="US" data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="/assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/><span>English (US)</span></span>'>
+            English (US)</option> -->
+        </select>
+      </div>
+      <!-- End Select -->
+    </div>
+  </header>
+  <!-- ========== END HEADER ========== --><!-- <main id="content" role="main" class="main pt-0">
+    <div class="row no-gutters h-100">
+        <div class="col-lg-6 d-none d-lg-inline vh-100 bg-light p-4">
+
+            <div class="w-100">
+                <a href="https://app.ascendr.co.uk">
+                    <img class="w-100" src="/assets/logos/logo.svg" alt="Ascendr" style="min-width: 10rem; max-width: 10rem;">
+                </a>
+            </div>
+
+            <div class="w-100 mt-5 text-center">
+                <img class="img-fluid" src="/assets/images/app/chat.svg" style="width: 12rem;">
+            </div>
+
+            <div class="mt-5 mx-auto text-center" style="max-width:26rem;">
+                <h1 class="large">Collaborative Onboarding</h1>
+                <div class="row no-gutters text-left">
+                    <div class="col-1 mt-4">
+                        <i class="fas fa-check text-xl text-primary"></i>
+                    </div>
+                    <div class="col-11 mt-4">
+                        <span class="d-block font-weight-bold mb-1">Client portal</span>
+                        Keep your clients involved throughout the onboarding process
+                    </div>
+                    <div class="col-1 mt-4">
+                        <i class="fas fa-check text-xl text-primary"></i>
+                    </div>
+                    <div class="col-11 mt-4">
+                        <span class="d-block font-weight-bold mb-1">Project templates</span>
+                        Build templates for your most common onboarding tasks
+                    </div>
+                    <div class="col-1 mt-4">
+                        <i class="fas fa-check text-xl text-primary"></i>
+                    </div>
+                    <div class="col-11 mt-4">
+                        <span class="d-block font-weight-bold mb-1">Manage your tasks</span>
+                        Don't let anything slip with our task manager
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-lg-6 vh-100 d-flex justify-content-center align-items-center">
+            <div class="w-100 mx-auto" style="max-width:26rem;">
+                <div class="text-center">
+                    <div class="d-lg-none mb-5">
+                        <a href="https://app.ascendr.co.uk">
+                            <img class="w-100" src="/assets/logos/logo.svg" alt="Ascendr" style="min-width: 10rem; max-width: 10rem;">
+                        </a>
+                    </div>
+                    <h1 class="large">Sign in</h1>
+                    Trouble logging in? <a href="https://ascendr.freshdesk.com/support/tickets/new" target="_blank">Get support</a>
+                </div>
+                <form method="post" name="frm">
+                    <input type="hidden" name="posted" value="1">
+                    <input type="hidden" name="salt" value="2d124c9d7eb4c4af59cbccd6ab4d2a98">
+                    <div class="mt-4">
+                        <label>Your email</label>
+                        <input type="text" name="email" id="email" value="" class="form-control form-control-lg" placeholder="ascendr@example.com">
+                    </div>
+                    <div class="mt-4">
+                        <label>Password</label>
+                        <div class="position-relative">
+                            <input type="password" name="password" id="password" class="form-control form-control-lg">
+                            <div class="position-absolute" style="top:0.75rem; right:0.5rem;">
+                                <i class="fas fa-eye-slash text-sm cursor-pointer" data-target="password" onclick="UI.togglePasswordInput(this);"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="remember" name="remember" value="1" >
+                            <label class="custom-control-label" for="remember">Remember me</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-lg btn-block btn-primary mt-4">Sign in</button>
+
+                    <div class="mt-4 text-center d-none">
+                        By using Ascendr, you agree to our<br><a href="/terms" class="text-link">Terms & Conditions</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main> -->
+
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main" class="main pt-0">
+    <!-- Content -->
+    <div class="container-fluid px-3">
+        <div class="row">
+            <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-light px-0">
+                <!-- Logo & Language -->
+                <div class="position-absolute top-0 start-0 end-0 mt-3 mx-3">
+                    <div class="d-none d-lg-flex justify-content-between">
+                        <a href="https://app.ascendr.co.uk" tabindex="-1">
+                            <img class="w-100" src="/assets/logos/logo.svg" alt="Ascendr" data-hs-theme-appearance="default" style="min-width: 7rem; max-width: 7rem;">
+                            <img class="w-100" src="/assets/logos/logo.svg" alt="Ascendr" data-hs-theme-appearance="dark" style="min-width: 7rem; max-width: 7rem;">
+                        </a>
+
+                        <!-- Select -->
+                        <div id="site-langauge" class="tom-select-custom tom-select-custom-end tom-select-custom-bg-transparent zi-2">
+                            <select class="js-select form-select form-select-sm form-select-borderless" data-hs-tom-select-options='{
+                          "searchInDropdown": false,
+                          "hideSearch": true,
+                          "dropdownWidth": "12rem",
+                          "placeholder": "Select language"
+                        }'>
+                                <option value="GB" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="/assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Image description" width="16"/><span>English (UK)</span></span>'>
+                                English (UK) </option>
+                                <!-- <option value="US"
+                                data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle me-2" src="/assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="United States of America Flag" /><span class="text-truncate">English (US)</span></span>'>
+                                English (US)</option> -->
+
+                            </select>
+                        </div>
+                        <!-- End Select -->
+                    </div>
+                </div>
+                <!-- End Logo & Language -->
+
+                <div style="max-width: 23rem;">
+                    <div class="text-center mb-5">
+                        <img class="img-fluid" src="/assets/images/app/chat.svg" alt="Ascendr" style="width: 12rem;" data-hs-theme-appearance="default">
+                        <img class="img-fluid" src="/assets/images/app/chat.svg" alt="Ascendr" style="width: 12rem;" data-hs-theme-appearance="dark">
+                    </div>
+
+                    <div class="mb-5">
+                        <h2 class="display-5">Collaborative Onboarding</h2>
+                    </div>
+
+                    <!-- List Checked -->
+                    <ul class="list-checked list-checked-lg list-checked-primary list-py-2">
+                        <li class="list-checked-item">
+                            <span class="d-block fw-semi-bold mb-1">Client portal</span>
+                            Keep your clients involved throughout the onboarding process
+                        </li>
+
+                        <li class="list-checked-item">
+                            <span class="d-block fw-semi-bold mb-1">Progress tracking</span>
+                            Follow each of your projects through to successful completion
+                        </li>
+
+                        <li class="list-checked-item">
+                            <span class="d-block fw-semi-bold mb-1">Manage your tasks</span>
+                            Don't let anything slip with our task manager
+                        </li>
+                    </ul>
+                    <!-- End List Checked -->
+
+                    <div class="row justify-content-between mt-5 gx-3">
+                        <!-- <div class="col">
+                <img class="img-fluid" src="./assets/svg/brands/gitlab-gray.svg" alt="Logo">
+              </div> -->
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-lg-6 d-flex justify-content-center align-items-center min-vh-lg-100">
+                <div class="position-absolute top-0 end-0 mt-3 mx-3">
+                    <!-- Style Switcher -->
+<div class="dropdown">
+    <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+    </button>
+
+    <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+        <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+            <i class="bi-brightness-high me-2"></i>
+            <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+        </a>
+        <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+            <i class="bi-moon me-2"></i>
+            <span class="text-truncate" title="Dark">Dark</span>
+        </a>
+    </div>
+</div>
+<!-- End Style Switcher -->                </div>
+                <div class="w-100 content-space-t-4 content-space-t-lg-2 content-space-b-1" style="max-width: 25rem;">
+
+                    <!-- Form -->
+                    <form class="js-validate needs-validation" method="post" name="frm" action="" novalidate>
+
+                        <div class="text-center">
+                            <div class="mb-5">
+                                <h1 class="display-5">Sign in</h1>
+                                <!-- <p>Don’t have an account yet? <a class="link" href="mailto:sales@ascendr.co.uk" tabindex="-1">Contact our team</a></p> -->
+                                <p>Don’t have an account yet? <a class="link" href="/signup" tabindex="-1">Sign up here</a></p>
+                                <p>Trouble logging in? <a class="link" href="https://ascendr.freshdesk.com/support/tickets/new" tabindex="-1" target="_blank">Get support</a></p>
+                            </div>
+                            <!-- <div class="d-grid mb-4">
+                                <a class="btn btn-white btn-lg" href="javascript:;">
+                                    <span class="d-flex justify-content-center align-items-center">
+                                        <img class="avatar avatar-xss me-2" src="/assets/icons/google-icon.svg" alt="Google">
+                                        Sign in with Google
+                                    </span>
+                                </a>
+                            </div>
+
+                            <span class="divider-center text-muted mb-4">OR</span> -->
+                        </div>
+                        
+                        <input type="hidden" name="posted" value="1">
+                        <input type="hidden" name="salt" value="2d124c9d7eb4c4af59cbccd6ab4d2a98">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label class="form-label" for="signinSrEmail">Your email</label>
+                            <input type="email" class="form-control form-control-lg" name="email" id="email" value="" tabindex="1" placeholder="ascendr@example.com" aria-label="ascendr@example.com" required  >
+                            <span class="invalid-feedback">Please enter the valid email address.</span>
+                        </div>
+                        <!-- End Form -->
+
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label class="form-label w-100" for="signupSrPassword" tabindex="-1">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <span>Password</span>
+                                    <a class="form-label-link mb-0" href="/forget-password">Forgot
+                                        Password?</a>
+                                </span>
+                            </label>
+
+                            <div class="input-group input-group-merge" data-hs-validation-validate-class>
+                                <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="password" tabindex="2" placeholder="Enter your password" aria-label="Enter your password" required minlength="1" data-hs-toggle-password-options='{
+                           "target": "#changePassTarget",
+                           "defaultClass": "bi-eye-slash",
+                           "showClass": "bi-eye",
+                           "classChangeTarget": "#changePassIcon"
+                         }'
+                                                  >
+                                <a id="changePassTarget" class="input-group-append input-group-text" href="javascript:;" tabindex="-1">
+                                    <i id="changePassIcon" class="bi-eye"></i>
+                                </a>
+                            </div>
+
+                            <span class="invalid-feedback">Please enter your password.</span>
+                        </div>
+                        <!-- End Form -->
+
+                        <!-- Form Check -->
+                        <div class="form-check mb-4">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember" value="1"                                                         >
+                            <label class="form-check-label" for="remember">
+                                Remember me
+                            </label>
+                        </div>
+                        <!-- End Form Check -->
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" tabindex="3" >Sign in</button>
+                        </div>
+
+                        <!-- Form Check -->
+                        <div class="form-check mb-4 mt-2">
+                            <label class="form-check-label" for="termsCheckbox">
+                                By using Ascendr, you agree to our <a href="/terms" tabindex="-1">Terms & Conditions</a>
+                </label>
+              </div>
+              <!-- End Form Check -->
+
+            </form>
+            <!-- End Form -->
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+
+<!-- JS Plugins Init. -->
+<script>
+  (function() {
+    window.onload = function() {
+      // INITIALIZATION OF BOOTSTRAP VALIDATION
+      // =======================================================
+      HSBsValidation.init('.js-validate', {
+        onSubmit: data => {
+          // data.event.preventDefault();
+        }
+      })
+
+
+      // INITIALIZATION OF TOGGLE PASSWORD
+      // =======================================================
+      new HSTogglePassword('.js-toggle-password')
+
+
+      // INITIALIZATION OF SELECT
+      // =======================================================
+      HSCore.components.HSTomSelect.init('.js-select')
+    }
+  })()
+</script><!-- JS Implementing Plugins -->
+<script src="/assets/js/site.js"></script>
+<script src="/assets/vendor/hs-toggle-password/dist/js/hs-toggle-password.js"></script>
+<script src="/assets/vendor/tom-select/dist/js/tom-select.complete.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<!-- JS Front -->
+<script src="/assets/vendor/js/theme.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js" integrity="sha512-6S5LYNn3ZJCIm0f9L6BCerqFlQ4f5MwNKq+EthDXabtaJvg3TuFLhpno9pcm+5Ynm6jdA9xfpQoMz2fcjVMk9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.26/sweetalert2.all.min.js" integrity="sha512-bVcYYoHEq3wY3x3w9TMN1dt25bbLyGO9xfAbGgTqCdirYUht2rR+drAMtvlduQ7sA0/XRoFu1oWMVEw8Uno0Gw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/app/Notifications.js?v=1687709550"></script>
+<script src="/assets/js/validations.js"></script>
+<script>
+    (function () {
+    // STYLE SWITCHER
+    // =======================================================
+    const $dropdownBtn = document.getElementById('selectThemeDropdown') // Dropdowon trigger
+    const $variants = document.querySelectorAll(`[aria-labelledby="selectThemeDropdown"] [data-icon]`) // All items of the dropdown
+
+    // Function to set active style in the dorpdown menu and set icon for dropdown trigger
+    const setActiveStyle = function () {
+        $variants.forEach($item => {
+        if ($item.getAttribute('data-value') === HSThemeAppearance.getOriginalAppearance()) {
+            $dropdownBtn.innerHTML = `<i class="${$item.getAttribute('data-icon')}" />`
+            return $item.classList.add('active')
+        }
+
+        $item.classList.remove('active')
+        })
+    }
+
+    // Add a click event to all items of the dropdown to set the style
+    $variants.forEach(function ($item) {
+        $item.addEventListener('click', function () {
+        HSThemeAppearance.setAppearance($item.getAttribute('data-value'))
+        })
+    })
+
+    // Call the setActiveStyle on load page
+    setActiveStyle()
+
+    // Add event listener on change style to call the setActiveStyle function
+    window.addEventListener('on-hs-appearance-change', function () {
+        setActiveStyle()
+    })
+    })()
+</script>
+<!-- End Style Switcher JS -->
+</body>
+
+</html>

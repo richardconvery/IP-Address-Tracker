@@ -1,0 +1,48 @@
+/* Variables */
+
+:root {
+    --bg-border: #e7eaf3;
+    --bg-border-light: #eef0f7;
+
+    --bg-scrollbar: #D7DCE3;
+    --bg-scrollbar-hover: #C8CFD9;
+
+    --bg-text: #677788;
+
+    --bg-dark-grey: #132144;
+    --bg-medium-grey: #677788;
+    --bg-light-grey: #e2e3e4;
+
+    --bg-white: #1E1E1E;
+
+    --bg-headings: #1e2022;
+
+    --bg-link: #377dff;
+
+    --bg-thead: #f8fafd;
+
+    --bg-avatar: #ebf2ff;
+
+    --bg-input-focus: #f5f6f9;
+
+    --primary: #377dff;
+    --primary-dark: #0052EA;
+    --success: #00c9a7;
+    --danger: #ed4c78;
+    --danger-light: #fdedf1;
+    --cancel: #ccc;
+    --ck-color-base-background: #25282a;
+}
+/*
+body .ck-content p {
+    color: #584F4F !important;
+}
+.comment-left-side-card p, .comment-right-side-card p {
+    color: #c5c8cc !important;
+}*/
+.comment-left-side-card a, .comment-right-side-card a {
+    color: rgb(0, 102, 204) !important;
+}
+.card.comment-right-side-card {
+    background-color: #454749;
+}

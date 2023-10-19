@@ -1,0 +1,64 @@
+/* Variables */
+
+:root {
+    --primary: #377dff;
+    --primary-dark: #0052EA;
+    --success: #00c9a7;
+    --danger: #ed4c78;
+    --danger-light: #fdedf1;
+    --warning: #ffcc66;
+    --warning-light: #ffffcc;
+    --cancel: #ccc;
+    --light: #f8f9fa;
+    
+    --bg-border: #e7eaf3;
+    --bg-border-light: #eef0f7;
+
+    --bg-scrollbar: #D7DCE3;
+    --bg-scrollbar-hover: #C8CFD9;
+
+    --bg-text: #677788;
+    --bg-text-dark: #1e2022;
+
+    --bg-dark-grey: #132144;
+    --bg-medium-grey: #677788;
+    --bg-medium-light-grey: #99a6b2;
+    --bg-light-grey: #e2e3e4;
+
+    --bg-dark-blue: #132144;
+
+    --bg-white: #ffffff;
+
+    --bg-headings: #1e2022;
+    --bg-title: #8c98a4;
+
+    --bg-link: #377dff;
+    --bg-link-light: #9EC0FF;
+
+    --bg-thead: #f8fafd;
+
+    --bg-avatar: #ebf2ff;
+    --bg-icon-hover: #ebf2ff;
+    --bg-autocomplete-hover: #ebf2ff;
+
+    --bg-selected: #ebf2ff;
+
+    --bg-input-focus: #f5f6f9;
+
+    --bg-segment: #F8FAFD;
+    --bg-segment-dark: #F3F6FB;
+
+    --bg-dropdown-item-hover: #F2F3F6;
+
+    --bg-file-word: #4285F4;
+    --bg-file-excel: #43A047;
+    --bg-file-powerpoint: #ff6633;
+    --bg-file-pdf: #cc0000;
+    --bg-file-code: #ff33cc;
+    --bg-file-music: #9933ff;
+    --bg-file-video: #0099ff;
+    --bg-file-image: #669999;
+    --bg-file-zip: #ffcc66;
+    --bg-file-text: #c4c6c8;
+    --bg-file: #d4d6d8;
+}

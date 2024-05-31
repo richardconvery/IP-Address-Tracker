@@ -294,3 +294,6 @@ button {
     justify-content: center;
     margin-top: 140px;
 }
+h1.dark {
+    color: black;
+}

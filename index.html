@@ -48,6 +48,37 @@
         <button onclick="promptAction()">
           Prompt
         </button>
+        <form  id="wosform5" action="https://alchemy.fusemetrix.com/clients/formbuilder_callback.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="formid" value="5" />
+        <input type="hidden" name="fmxt" value="" />
+        <div class='form-group'><label class='col-form-label'>First name *</label><input type='text' class='form-control'  id='field_11' name='field_11' value=''> </div>
+<div class='form-group'><label class='col-form-label'>Last name *</label><input type='text' class='form-control'  id='field_12' name='field_12' value=''> </div>
+<div class='form-group'><label class='col-form-label'>Company name *</label><input type='text' class='form-control'  id='field_13' name='field_13' value=''> </div>
+<div class='form-group'><label class='col-form-label'>Email </label><input type='text' class='form-control'  id='field_15' name='field_15' value=''> </div>
+
+                       <input type="submit" class="btn btn-primary" onclick="submitForm5('wosform5');return false;" value="Submit">
+              
+        
+</form>
+<script>
+var fmxt = document.cookie.match(/\bfmxt=(\d+)/);
+if (fmxt) document.getElementsByName("fmxt")[0].value = fmxt[1];
+function submitForm5(formid) { 
+if(document.getElementById("field_11").value == "") {
+alert("Please fill all required fields");
+return false;
+}
+if(document.getElementById("field_12").value == "") {
+alert("Please fill all required fields");
+return false;
+}
+if(document.getElementById("field_13").value == "") {
+alert("Please fill all required fields");
+return false;
+}
+document.getElementById(formid).submit();
+}
+</script>
         <!-- information -->
         <div class="information-banner">
             <div class="information-box">

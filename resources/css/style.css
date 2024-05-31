@@ -279,21 +279,3 @@ button {
 
 /* #endregion */
 
-.form-group {
-    padding: 5px;
-}
-#wosform1 {
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    border: 1px grey solid;
-    padding: 25px;
-    border-radius: 5px;
-    display: grid;
-    justify-content: center;
-    margin-top: 140px;
-}
-h1.dark {
-    color: black;
-}

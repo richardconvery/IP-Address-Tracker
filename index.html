@@ -48,37 +48,40 @@
         <button onclick="promptAction()">
           Prompt
         </button>
-        <form  id="wosform5" action="https://alchemy.fusemetrix.com/clients/formbuilder_callback.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="formid" value="5" />
+                    
+<!-- Start FMX Form -->
+        <form  id="wosform1" action="https://purelyenergy.fusemetrix.com/clients/formbuilder_callback.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="formid" value="1" />
         <input type="hidden" name="fmxt" value="" />
-        <div class='form-group'><label class='col-form-label'>First name *</label><input type='text' class='form-control'  id='field_11' name='field_11' value=''> </div>
-<div class='form-group'><label class='col-form-label'>Last name *</label><input type='text' class='form-control'  id='field_12' name='field_12' value=''> </div>
-<div class='form-group'><label class='col-form-label'>Company name *</label><input type='text' class='form-control'  id='field_13' name='field_13' value=''> </div>
-<div class='form-group'><label class='col-form-label'>Email </label><input type='text' class='form-control'  id='field_15' name='field_15' value=''> </div>
+        <div class='form-group'><label class='col-form-label'> </label><input type="text" name="comments" autocomplete="off" style="opacity:0;position:absolute;top:0;left:0;height:0;width:0;z-index:-1;"> </div>
+<div class='form-group'><label class='col-form-label'>Company Name *</label><input type='text' class='form-control'  id='field_2' name='field_2' value=''> </div>
+<div class='form-group'><label class='col-form-label'>First Name *</label><input type='text' class='form-control'  id='field_3' name='field_3' value=''> </div>
+<div class='form-group'><label class='col-form-label'>Last Name *</label><input type='text' class='form-control'  id='field_4' name='field_4' value=''> </div>
 
-                       <input type="submit" class="btn btn-primary" onclick="submitForm5('wosform5');return false;" value="Submit">
+                       <input type="submit" class="btn btn-primary" onclick="submitForm1('wosform1');return false;" value="Submit">
               
         
 </form>
 <script>
 var fmxt = document.cookie.match(/\bfmxt=(\d+)/);
 if (fmxt) document.getElementsByName("fmxt")[0].value = fmxt[1];
-function submitForm5(formid) { 
-if(document.getElementById("field_11").value == "") {
+function submitForm1(formid) { 
+if(document.getElementById("field_2").value == "") {
 alert("Please fill all required fields");
 return false;
 }
-if(document.getElementById("field_12").value == "") {
+if(document.getElementById("field_3").value == "") {
 alert("Please fill all required fields");
 return false;
 }
-if(document.getElementById("field_13").value == "") {
+if(document.getElementById("field_4").value == "") {
 alert("Please fill all required fields");
 return false;
 }
 document.getElementById(formid).submit();
 }
 </script>
+<!-- End FMX Form -->
         <!-- information -->
         <div class="information-banner">
             <div class="information-box">
